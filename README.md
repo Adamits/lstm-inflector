@@ -1,5 +1,15 @@
 # LSTM Inflector
 
+## Install
+
+You can 'install' with the setup.py:
+
+`python setup.py develop` will create a python module in your environment that updates as you update the code. It can then be imported like a regular python module:
+
+```
+import lstm_inflector
+```
+
 ## Usage
 
 Train a sequence to sequence LSTM for morphological inflection generation. An example is given in `experiments/run.sh`. See `train.py` for all options, including a bidirectional or unidirectional encoder, as well as including attention or not.

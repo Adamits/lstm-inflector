@@ -7,8 +7,8 @@ OURDIR=/results/lstm-bidir-attn-no-smooth
 # For naming output dir, and finding train/dev files
 LANG=english
 
-
-python -u train.py \
+# Can also call from the module: python -m lstm_inflector.train
+python -u lstm_inflector/train.py \
   --train_data_path $DATA/${LANG}.train \
   --dev_data_path $DATA/${LANG}.dev \
   --output_path $OURDIR \

@@ -6,10 +6,10 @@ from tqdm import tqdm
 import click
 import os
 
-from models import EncoderDecoderAttention
-from trainer import Trainer
-from evaluator import Evaluator
-import datasets
+from lstm_inflector.models import EncoderDecoderAttention
+from lstm_inflector.trainer import Trainer
+from lstm_inflector.evaluator import Evaluator
+from lstm_inflector import datasets
 
 
 def get_dataset(dataset: str):
