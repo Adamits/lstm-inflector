@@ -3,14 +3,16 @@
 # Dir with train/dev data
 DATA=data
 # The directory to write models/intermediate data
-OURDIR=/results/lstm-bidir-attn-no-smooth
+OURDIR=results/lstm-bidir-attn-no-smooth
 # For naming output dir, and finding train/dev files
-LANG=english
+LANG=spanish
+# Setting is the size of training set. This sample just has low.
+SETTING=low
 
 # Can also call from the module: python -m lstm_inflector.train
 python -u lstm_inflector/train.py \
-  --train_data_path $DATA/${LANG}.train \
-  --dev_data_path $DATA/${LANG}.dev \
+  --train_data_path $DATA/${LANG}-train-${SETTING} \
+  --dev_data_path $DATA/${LANG}-dev \
   --output_path $OURDIR \
   --dataset sigmorphon_data \
   --lang ${LANG} \

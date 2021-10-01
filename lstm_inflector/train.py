@@ -100,20 +100,28 @@ def main(
     )
 
     for batch_in, batch_in_mask, batch_target in train_loader:
-        print(f"example TRAIN sample")
-        for b, t in zip(train_set.decode(batch_in), train_set.decode(batch_target)):
+        print(f"example TRAIN sample. First 2 rows in BATCH")
+        i = 0
+        for b, t, m in zip(train_set.decode(batch_in), train_set.decode(batch_target), batch_in_mask):
             print(f"INPUT: {b} OUTPUT: {t}")
+            print(f"MASK: {m}")
 
-        print(f"MASK: {batch_in_mask}")
+            if i>1:
+                break
+            i += 1
 
         break
 
     for batch_in, batch_in_mask, batch_target in eval_loader:
-        print(f"example EVAL sample")
-        for b, t in zip(eval_set.decode(batch_in), eval_set.decode(batch_target)):
+        print(f"\nexample EVAL sample. First 2 rows in BATCH")
+        i = 0
+        for b, t, m in zip(eval_set.decode(batch_in), eval_set.decode(batch_target), batch_in_mask):
             print(f"INPUT: {b} OUTPUT: {t}")
+            print(f"MASK: {m}")
 
-        print(f"MASK: {batch_in_mask}")
+            if i>1:
+                break
+            i += 1
 
         break
 
@@ -121,6 +129,7 @@ def main(
     best_acc = -1000
     epochs_since_best = 0
     # Training loop over epochs
+    print("Training...")
     for i in range(num_epochs):
         print(f"EPOCH: {i}")
         batch_losses = []
